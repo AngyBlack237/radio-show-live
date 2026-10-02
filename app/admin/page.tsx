@@ -1,0 +1,1 @@
+import {authorized,user} from '@/lib/server';import {redirect} from 'next/navigation';import Admin from './panel';export const dynamic='force-dynamic';export default async function Page(){if(!await user())redirect('/connexion');if(!await authorized())return <main><h1>Accès réservé à la direction.</h1><a href="/">Retour à la radio</a></main>;return <Admin/>}

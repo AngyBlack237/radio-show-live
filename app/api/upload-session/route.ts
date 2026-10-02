@@ -1,0 +1,1 @@
+import {user,token,result,url,key} from '@/lib/server';export async function GET(){const u=await user();if(!u?.email_confirmed_at)return result({error:'Connectez-vous pour envoyer un morceau.'},401);return result({url,key,token:await token(),user_id:u.id})}
